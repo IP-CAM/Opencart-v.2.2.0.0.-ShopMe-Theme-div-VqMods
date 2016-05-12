@@ -1081,6 +1081,15 @@ $('#product-related').delegate('.fa-minus-circle', 'click', function() {
 });
 //--></script>
   <script type="text/javascript"><!--
+
+		function htmlProductAttribute(textareaName) {
+			textareaName.summernote({height: 100});
+		}
+
+		$('textarea[name^="product_attribute["]').attr('title', 'Double Click for HTML').on('dblclick', function() { 
+			htmlProductAttribute($(this));
+		});
+		
 var attribute_row = <?php echo $attribute_row; ?>;
 
 function addAttribute() {
@@ -1094,6 +1103,13 @@ function addAttribute() {
 	html += '  <td class="text-left"><button type="button" onclick="$(\'#attribute-row' + attribute_row + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
     html += '</tr>';
 
+
+		<?php foreach ($languages as $language) { ?>
+		html += '<script type="text/javascript">';
+		html += '$(\'textarea[name="product_attribute[' + attribute_row + '][product_attribute_description][<?php echo $language['language_id']; ?>][text]"]\').attr(\'title\', \'Double Click for HTML\').on(\'dblclick\', function(){ htmlProductAttribute($(this)); });';
+		html += '</script>';
+		<?php } ?>
+		
 	$('#attribute tbody').append(html);
 
 	attributeautocomplete(attribute_row);
