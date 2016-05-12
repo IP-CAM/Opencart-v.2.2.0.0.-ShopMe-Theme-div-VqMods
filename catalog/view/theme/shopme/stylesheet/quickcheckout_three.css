@@ -1,0 +1,40 @@
+.checkout-column {
+	width:30%;
+}
+.checkout-column.cart {
+	width:40%;
+}
+.quickcheckout-content {
+    padding: 20px 15px;
+}
+.quickcheckout-content .col-sm-6 {
+	width: 100%;
+}
+#login .col-sm-6 {
+	width: 50%;
+}
+.cart-info thead td {
+	padding:14px 12px;
+}
+.cart-info td, .cart-info.confirm .confirm_totals td, .cart-info.confirm .confirm_totals tr:last-child td {
+	padding:14px 12px;
+}
+.cart-info.confirm .confirm_totals tr:last-child td {
+	font-size:16px;
+}
+.cart-info .image img {
+	max-width:40px;
+}
+.cart-info tbody .name a {
+	font-size:13px;
+}
+#terms .quickcheckout-content .confirm {
+	width:100%;
+}
+#terms .quickcheckout-content input[type='checkbox'] {
+	float:left;
+	margin-right:5px;
+}
+#terms .quickcheckout-content .btn {
+	margin-top:10px;
+}

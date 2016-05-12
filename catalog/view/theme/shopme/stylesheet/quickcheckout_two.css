@@ -1,0 +1,15 @@
+.checkout-column {
+	width:50%;
+}
+.cart-info td {
+	padding:17px 10px;
+}
+.cart-info.confirm .confirm_totals tr:last-child td {
+	font-size:16px;
+}
+.cart-info .image img {
+	max-width:60px;
+}
+.cart-info tbody .name a {
+	font-size:14px;
+}
