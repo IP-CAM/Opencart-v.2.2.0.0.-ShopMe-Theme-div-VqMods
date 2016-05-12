@@ -1,0 +1,2 @@
+2016-05-12 11:35:35 - PHP Notice:  Undefined variable: adv_ajaxfilter_status in /var/www/html/admin/view/template/module/adv_ajaxfilter.tpl on line 32
+2016-05-12 11:40:24 - PHP Notice:  Undefined variable: adv_ajaxfilter_status in /var/www/html/admin/view/template/module/adv_ajaxfilter.tpl on line 32

@@ -1,0 +1,61 @@
+2016-05-12 13:10:01 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 34
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+LINE: 92
+LINE: 104
+LINE: 142
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 35
+LINE: 41
+LINE: 47
+FILE: system/library/template/basic.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+----------------------------------------------------------------
+MOD: Tweak for OpenCart 2x Russkaya sborka
+FILE: admin/view/template/common/header.tpl
+CODE: <?php foreach ($links as $link) { ?>
+LINE: 35
+CODE: <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+LINE: 19
+CODE: <li><a href="http://www.opencart.com" target="_blank"><?php echo $text_homepage; ?></a></li>
+LINE: 84
+CODE: <li><a href="http://docs.opencart.com" target="_blank"><?php echo $text_documentation; ?></a></li>
+LINE: 87
+CODE: <li><a href="http://forum.opencart.com" target="_blank"><?php echo $text_support; ?></a></li>
+LINE: 90
+FILE: admin/view/template/catalog/product_form.tpl
+CODE: <label class="col-sm-2 control-label" for="input-sku"><span data-toggle="tooltip" title="<?php echo $help_sku; ?>"><?php echo $entry_sku; ?></span></label>
+LINE: 109
+CODE: <label class="col-sm-2 control-label" for="input-sku">
+LINE: 115
+CODE: <label class="col-sm-2 control-label" for="input-location"><?php echo $entry_location; ?></label>
+LINE: 155
+CODE: <input type="text" name="model" value="<?php echo $model; ?>" placeholder="<?php echo $entry_model; ?>" id="input-model" class="form-control" />
+LINE: 101
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a href="<?php echo $theme; ?>"><?php echo $text_theme; ?></a></li>
+LINE: 25
+CODE: <li><a href="<?php echo $total; ?>"><?php echo $text_total; ?></a></li>
+LINE: 37
+FILE: admin/view/template/tool/backup.tpl
+CODE: <input type="file" name="import" id="input-import" />
+LINE: 36
+----------------------------------------------------------------
+MOD: HTML Product Attribute
+CODE: var attribute_row = <?php echo $attribute_row; ?>;
+LINE: 1092
+CODE: $('#attribute tbody').append(html);
+LINE: 1112
+FILE: catalog/model/catalog/product.php
+CODE: $product_attribute_data[] = array(
+LINE: 308
+----------------------------------------------------------------

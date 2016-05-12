@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Newsletter subscribe for guests</id>
+	<version>2.0.1 and above</version>
+	<author>Karl Pers - openthemer@gmail.com</author>
+	<file name="admin/controller/common/menu.php">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+			$data['text_openbay_order_import'] = $this->language->get('text_openbay_order_import');
+			]]></search>
+			<add><![CDATA[
+			$this->load->language('sale/subscriber');
+			$data['text_subscriber'] = $this->language->get('menu_subscriber');
+			$data['subscriber'] = $this->url->link('sale/subscriber', 'token=' . $this->session->data['token'], true);
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/common/menu.tpl">
+		<operation error="skip">
+			<search position="before"><![CDATA[
+			<li><a class="parent"><?php echo $text_voucher; ?></a>
+			]]></search>
+			<add><![CDATA[
+			<li><a href="<?php echo $subscriber; ?>"><?php echo $text_subscriber; ?></a></li>
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/model/customer/customer.php">
+		<operation>
+			<search position="replace" index="1"><![CDATA[
+				return $query->rows;
+			]]></search>
+			<add><![CDATA[
+				if (!empty($data['filter_newsletter']) && isset($data['start']) && $data['start'] == 0) {
+					$subscriber_list = $this->db->query("SELECT email FROM " . DB_PREFIX . "newsletter" );
+					return array_merge($subscriber_list->rows, $query->rows);
+				} else {
+					return $query->rows;
+				}
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/model/account/customer.php">
+		<operation error="log">
+			<search position="after"><![CDATA[
+				public function addCustomer($data) {
+			]]></search>
+			<add><![CDATA[
+				if (!empty($data['email'])) {
+					$this->db->query("DELETE FROM " . DB_PREFIX . "newsletter WHERE email = '" . $this->db->escape($data['email']) . "'");
+				}
+			]]></add>
+		</operation>
+	</file>
+</modification>
